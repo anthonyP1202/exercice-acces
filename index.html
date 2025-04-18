@@ -1,0 +1,331 @@
+<style>
+    .name{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 50px;
+        font-style: oblique;
+    }
+
+    .project-desc{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: x-large;
+    }
+
+    .container {
+        background-color: aliceblue;
+        margin: 0 auto;
+        width: 60%;
+        text-align: center; /* centers the text horizontally */
+    }
+    
+    .job{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: xx-large;
+        font-style: italic; 
+    }
+
+    .game_title{
+        font-size: xx-large;
+    }
+
+    .button-explaination{
+        width: 75%; 
+        margin: 0 auto;
+        /* padding: 10px; */
+    }
+
+    /* .popup-overlay {
+        align-items: center;
+        background-color: rgba(000, 000, 000, 0.2);
+        height: 100vh;
+        justify-content: center;
+        position: fixed;
+        width: 100vw;
+    } */
+
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .popup {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 500px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .close-btn {
+      float: right;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+</style>
+
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" title="Anthony Pereira">
+    <title>Document</title>
+</head>
+<body style="background-color: gray;">
+    <div class="container" id="containers" >
+        <br>
+        <!-- description perso -->
+        <p class="name">Anthony Pereira</p>
+        <p style="margin-bottom: 120px;" class="job">game programer</p>
+        <!-- <br><br><br> -->
+        <div style="width: 65%; margin: 0 auto;">
+        <P class="game_title">A Propos</P>
+            <p class="project-desc">
+                Je suis Anthony Pereira, je suis passionné de jeu vidéo, j'ai donc décidé de me diriger dans ce domaine.
+            </p>
+        </div>
+
+        <!-- projet -->
+        <p class="job" style="margin-top: 120;">Projet</p>
+
+        <!-- HangedMan -->
+        <button class="button-explaination" id="HangedMan" style="margin-bottom: 80px;" aria-label="description HangedMan">
+            <div style="width: 85%; margin: 0 auto;" aria-hidden="true">
+                <P class="game_title" aria-hidden="true">HangedMan</P>
+                <img style="width: 100%;" src="img/gameplay.png" alt="interface du jeux" aria-hidden="true">
+                <div style="background-color: rgb(18, 18, 18);"aria-hidden="true">
+                    <img style="width: 45.34%;" src="img/victory.png" alt="écrant de victoire" aria-hidden="true">
+                    <img style="width: 50.02%;" src="img/failure.png" alt="écrant d'écheque" aria-hidden="true">
+                </div>
+            </div>
+            <br>
+        </button>
+        <br>
+        <!-- Undead -->
+        <button class="button-explaination" id="undead" style="margin-bottom: 80px;" aria-label="description Undead">
+            <div aria-hidden="true" style="width: 85%; margin: 0 auto;">
+                <!-- <br><br><br> -->
+                <P aria-hidden="true" class="game_title">Undead</P>
+            </div>
+            <img style="width: 100%;" aria-hidden="true" src="img\undead.png" alt="zombie du jeu aprochant le joueur dans une foret">
+            <br>
+        </button>
+        <br>
+
+        <!-- Pedro and the abyss -->
+        <button class="button-explaination" id="pedro" style="margin-bottom: 80px;" aria-label="description pedro and the abyss">
+            <div  style="width: 85%; margin: 0 auto;">
+                <!-- <br><br><br> -->
+                <P class="game_title">Pedro and the abyss</P>
+            </div>
+            <img  src="img\pedro_and_the_abyss.png" style="width: 100%;" alt="personnage entourée de ténèbre">
+            <br>
+        </button>
+        
+        <!-- contact -->
+        <p class="game_title">Contact</p>
+
+        <a href="https://www.linkedin.com/in/anthony-pereira-813b9232a/" aria-label="linkedin" style="width: 100%;"> 
+            <img style="width: 5%;" src="img\linkedin.png" aria-hidden="true" alt="linkedin">
+        </a> <br> <br>
+
+        <!-- Form -->
+
+        <p class="game_title" >Form</p>
+        <br>
+        <p id="statusMessage" ></p>
+        <br>
+        <form id="contactForm">
+            <input type="text" id="nom" placeholder="votre nom" aria-required="true"><br> <br>
+            <input type="text" id="prénom" placeholder="votre prénom" aria-required="true"><br> <br>
+            <input type="text" id="email" placeholder="votre email" aria-required="true"><br> <br>
+            <select name="pays" id="pays" required aria-required="true" aria-label="choix du pays">
+                <option value="france" selected>france</option>
+                <option value="royaume uni">royaume uni</option>
+                <option value="australie">australie</option>
+                <option value="USA">USA</option>
+                <option value="autre">autre</option>
+            </select> <br> <br>
+            <button type="submit">Send</button>
+          </form>
+    </div>
+
+    <!-- popup -->
+
+    <div class="popup-overlay" id="popup1" role="dialog" aria-modal="true" style="display: none;">
+        <div class="popup">
+            <p role="button" style="font-size: x-large" id="popupTitle" tabindex="0">changrf</p>
+            <p role="button" id="textdescr" tabindex="-1">change</p>
+            <button class="close-btn" id="closePopup" aria-label="fermer la popup">&times;</button>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+
+    //popups   
+    const container = document.getElementById('containers');
+    const buttontext = document.getElementById('textdescr');
+    const buttonTitle = document.getElementById('popupTitle');
+    const undead = document.getElementById('undead');
+    const closeBtn = document.getElementById('closePopup');
+    const popup = document.getElementById('popup1');
+    const HangedMan = document.getElementById('HangedMan');
+    const pedro = document.getElementById('pedro');
+    var ogclick
+    
+    undead.addEventListener('click', () => {
+        ogclick = undead
+        popup.style.display = 'flex';
+        popup.querySelector('.popup').focus();
+        container.inert = true;
+
+        const paragraph = popup.querySelectorAll('p');
+
+        paragraph[0].innerHTML = "Undead"
+        paragraph[1].innerHTML = "Le projet undead est un zombie shooter réalisé dans le cadre d'un projet interfilière.<br>Dans le jeu, on obtient des points en tuant des zombies et on choisit de les dépenser en améliorations, nouvelles armes ou extensions de terrain."
+        paragraph[0].focus();
+    });
+
+    HangedMan.addEventListener('click', () => {
+        ogclick = HangedMan
+        popup.style.display = 'flex';
+        
+        container.inert = true;
+
+        const paragraph = popup.querySelectorAll('p');
+
+        paragraph[0].innerHTML = "HangedMan"
+        paragraph[1].innerHTML = "Le projet HangedMan est un jeu du pendu où il faut deviner un mot avant d'atteindre le nombre maximum d'essais.<br>Une lettre vaut 1 tentative et un mot en vaut 2."
+        paragraph[0].focus();
+    });
+
+    pedro.addEventListener('click', () => {
+        ogclick = pedro
+        popup.style.display = 'flex';
+        popup.querySelector('.popup').focus();
+        container.inert = true;
+
+        const paragraph = popup.querySelectorAll('p');
+
+        paragraph[0].innerHTML = "Pedro and the abysse"
+        paragraph[1].innerHTML = "Le projet Pedro And The Abyss est un platformer dans lequel on explore une grotte à la recherche de la sortie.<br>Le personnage est perdu dans les ténèbres d'une grotte et doit utiliser sa pioche pour trouver des objets et la sortie, tout en évitant les monstres."
+        paragraph[0].focus();
+    });
+
+    closeBtn.addEventListener('click', () => {
+        popup.style.display = 'none';
+        container.inert = false;
+        ogclick.focus(); // Return focus to the button
+    });
+    
+    buttontext.addEventListener('click', () => {
+        popup.style.display = 'none';
+        container.inert = false;
+        ogclick.focus(); // Return focus to the button
+    });
+
+    buttonTitle.addEventListener('click', () => {
+        popup.style.display = 'none';
+        container.inert = false;
+        ogclick.focus(); // Return focus to the button
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && popup.style.display === 'flex') {
+            popup.style.display = 'none';
+            container.inert = false;
+            ogclick.focus();
+        }
+    });
+
+    //form
+    const form = document.getElementById('contactForm');
+    const statusMsg = document.getElementById('statusMessage');
+  
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent real submission
+
+      const nom = document.getElementById('nom');
+      const prénom= document.getElementById('prénom');
+      const email = document.getElementById('email');
+  
+      let valid = true;
+  
+      [nom, prénom].forEach(input => {
+        if (valid == true){
+            if (!input.value.trim()) {
+                input.ariaInvalid = true
+                statusMsg.removeAttribute('role');
+
+                input.blur();
+                setTimeout(() => {
+                    statusMsg.innerHTML = "le champ " +input.id + " est vide"
+                    statusMsg.role="alert"
+                    input.focus();  // Reapply focus to trigger screen reader
+                }, 10); // A short delay helps
+                valid = false;
+                statusMsg.style.color = 'red';
+            } else {
+                statusMsg.innerHTML = ""
+                statusMsg.removeAttribute('role');
+                input.ariaInvalid= false
+                input.style.border = ''; // Reset if fixed
+                input.ariaRequired = "true";
+            }
+        }
+      });
+      
+      if(valid == true){
+        if (!email.value.trim()) {
+            email.ariaInvalid = true
+            statusMsg.removeAttribute('role');
+            statusMsg.style.color = 'red';
+            email.blur();
+            setTimeout(() => {
+                statusMsg.innerHTML = "le champ email est vide"
+                statusMsg.role="alert"
+                email.focus();  // Reapply focus to trigger screen reader
+            }, 10); // A short delay helps
+
+            valid = false;
+        } else { 
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email.value.trim())) {
+
+                statusMsg.style.color = 'red';
+                statusMsg.removeAttribute('role');
+                email.style.border = '2px solid red';
+                email.ariaInvalid=true;
+                email.blur();
+                setTimeout(() => {
+                    statusMsg.innerHTML = "l'email est invalide"
+                    statusMsg.role="alert"
+                    email.focus(); 
+                }, 10); 
+                valid = false;
+            }
+        }
+        if (valid) {
+            statusMsg.removeAttribute('role');
+            form.reset(); // Clear form
+            setTimeout(() => {
+                    statusMsg.textContent = 'Message envoyé!';
+                    statusMsg.style.color = 'green';
+                    statusMsg.role="alert"
+            }, 10);
+
+            setTimeout(() => {
+                    statusMsg.removeAttribute('role');
+            }, 1000);
+        }
+      }
+    });
+  </script>
